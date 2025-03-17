@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Portfolio personal" />
@@ -19,9 +19,7 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
-	<body class="bg-gray-900 text-white min-h-screen font-sans">
-		<main class="max-w-4xl mx-auto px-4 py-8">
-			<slot />
-		</main>
+	<body class="text-white min-h-screen font-sans">
+		<slot />
 	</body>
 </html>
