@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Home from '../components/Home.astro';
-import Projects from '../components/Projects.astro';
+import Header from '../pages/Header.astro';
+import Home from '../pages/Home.astro';
+import Projects from '../pages/Projects.astro';
+import About from '../pages/About.astro';
+import TechStack from '../pages/TechStack.astro';
 ---
 
 <Layout title="Mi Portfolio Personal">
@@ -12,18 +14,12 @@ import Projects from '../components/Projects.astro';
 
 	<Projects />
 
-	<section id="sobre-mi" class="min-h-screen py-16">
-		<h2 class="text-3xl font-bold mb-8">Sobre mí</h2>
-		<!-- Contenido sobre mí se agregará después -->
-	</section>
+	<About />
 
-	<section id="certificaciones" class="min-h-screen py-16">
+	<!-- Contenido de certificaciones se agregará después -->
+	<!-- <section id="certificaciones" class="min-h-screen py-16">
 		<h2 class="text-3xl font-bold mb-8">Certificaciones</h2>
-		<!-- Contenido de certificaciones se agregará después -->
-	</section>
+	</section> -->
 
-	<section id="skills" class="min-h-screen py-16">
-		<h2 class="text-3xl font-bold mb-8">Skills</h2>
-		<!-- Contenido de skills se agregará después -->
-	</section>
+	<TechStack />
 </Layout>
