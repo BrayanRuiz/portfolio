@@ -23,16 +23,16 @@ import BrayanImg from '../assets/Brayan.jpg';
 
 	<nav>
 		<ul class="flex gap-6 text-sm font-medium">
-			<li><a href="#inicio" class="hover:text-[#94D8F6] transition-colors">Inicio</a></li>
-			<li><a href="#proyectos" class="hover:text-[#94D8F6] transition-colors">Proyectos</a></li>
-			<li><a href="#sobre-mi" class="hover:text-[#94D8F6] transition-colors">Sobre mí</a></li>
-			<li><a href="#tecnologias" class="hover:text-[#94D8F6] transition-colors">Tecnologías</a></li>
+			<li><a href="#inicio" class="hover:text-[#94D8F6] transition-colors menu">Inicio</a></li>
+			<li><a href="#proyectos" class="hover:text-[#94D8F6] transition-colors menu">Proyectos</a></li>
+			<li><a href="#sobre-mi" class="hover:text-[#94D8F6] transition-colors menu">Sobre mí</a></li>
+			<li><a href="#tecnologias" class="hover:text-[#94D8F6] transition-colors menu">Tecnologías</a></li>
 		</ul>
 	</nav>
 </header>
 
 <script>
-	document.querySelectorAll('a').forEach(link => {
+	document.querySelectorAll('.menu').forEach(link => {
 		link.addEventListener('click', (e) => {
 			e.preventDefault();
 			const href = link.getAttribute('href');

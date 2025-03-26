@@ -1,6 +1,6 @@
 ---
 interface Project {
-    type: 'FRONTEND' | 'BACKEND' | 'FULL STACK';
+    type: 'FRONTEND' | 'BACKEND' | 'FULLSTACK';
     title: string;
     description: string;
     image: string;
@@ -13,50 +13,29 @@ interface Project {
 
 const projects: Project[] = [
     {
-        type: 'FRONTEND',
-        title: 'Portfolio Personal',
-        description: 'Portfolio personal construido con React, TypeScript y Tailwind CSS.',
-        image: '/projects/portfolio.webp',
-        tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Git', 'Tailwind'],
+        type: 'FULLSTACK',
+        title: 'CONSULTORES PROFESIONALES OPC',
+        description: 'Reconstrucción y rediseño del sitio web.',
+        image: '/src/assets/projects/opc.png',
+        tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'PHP', 'Bootstrap'],
         links: {
-            code: '#',
-            demo: '#'
+            code: 'https://github.com/BrayanRuiz/ConsultoresOPC',
+            demo: 'https://consultoresopc.com/'
         }
     },
-    {
-        type: 'FULL STACK',
-        title: 'Task Manager',
-        description: 'Aplicación web full stack para gestión de tareas y proyectos.',
-        image: '/projects/task-manager.webp',
-        tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'C#', '.NET'],
-        links: {
-            code: '#',
-            demo: '#'
-        }
-    },
-    {
-        type: 'BACKEND',
-        title: '.NET API Backend',
-        description: 'API Rest Backend con C# .NET, Entity Framework y SQL Server.',
-        image: '/projects/dotnet-backend.webp',
-        tags: ['C#', '.NET', 'Entity Framework', 'SQL Server'],
-        links: {
-            code: '#'
-        }
-    }
 ];
 
-const filters = ['Todos', 'Full Stack', 'Frontend', 'Backend'];
+const filters = ['Todos', 'Fullstack', 'Frontend', 'Backend'];
 ---
 <section id="proyectos" class="bg-[#151817] min-h-screen py-32">
     <div class="container mx-auto px-6">
         <span class="text-[#94D8F6] text-sm tracking-wider">PROYECTOS</span>
         <h2 class="text-5xl font-bold mt-2 mb-12 text-white">Mis proyectos destacados</h2>
         
-        <div class="flex gap-4 mb-12">
+        <div class="flex justify-center gap-4 mb-12">
             {
                 filters.map(filter => (
-                    <button class="px-6 py-2 rounded-full bg-black/20 backdrop-blur-sm hover:bg-[#94D8F6]/20 transition-colors hover:cursor-pointer text-sm font-medium">
+                    <button class={`filter-btn text-gray-400 hover:text-white px-4 py-2 rounded-lg transition-colors cursor-pointer ${filter === 'Todos' ? 'active' : ''}`} data-type={filter.toLowerCase().replace(' ', '')}>
                         {filter}
                     </button>
                 ))
@@ -66,7 +45,7 @@ const filters = ['Todos', 'Full Stack', 'Frontend', 'Backend'];
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {
                 projects.map(({ type, title, description, tags, links, image }) => (
-                    <article class="group bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-[#94D8F6]/5 transition-colors">
+                    <article class={`project-card bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden ${type === 'FRONTEND' ? 'frontend' : type === 'BACKEND' ? 'backend' : 'fullstack'}`} data-type={type.toLowerCase().replace(' ', '')}>
                         <img src={image} alt={title} class="w-full h-48 object-cover" />
                         <div class="p-6">
                             <header class="mb-4">
@@ -82,7 +61,7 @@ const filters = ['Todos', 'Full Stack', 'Frontend', 'Backend'];
                                 ))}
                             </div>
                             <footer class="flex gap-3">
-                                <a href={links.code} class="flex items-center gap-2 bg-black/20 backdrop-blur-sm hover:bg-[#94D8F6]/20 transition-colors px-4 py-2 rounded-full text-sm">
+                                <a href={links.code} target="_blank" class="flex items-center gap-2 bg-black/20 backdrop-blur-sm hover:bg-[#94D8F6]/20 transition-colors px-4 py-2 rounded-full text-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M7 8l-4 4l4 4"></path>
                                         <path d="M17 8l4 4l-4 4"></path>
@@ -91,7 +70,7 @@ const filters = ['Todos', 'Full Stack', 'Frontend', 'Backend'];
                                     Código
                                 </a>
                                 {links.demo && (
-                                    <a href={links.demo} class="flex items-center gap-2 bg-[#94D8F6]/10 hover:bg-[#94D8F6]/20 text-[#94D8F6] transition-colors px-4 py-2 rounded-full text-sm">
+                                    <a href={links.demo} target="_blank" class="flex items-center gap-2 bg-[#94D8F6]/10 hover:bg-[#94D8F6]/20 text-[#94D8F6] transition-colors px-4 py-2 rounded-full text-sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
@@ -109,3 +88,52 @@ const filters = ['Todos', 'Full Stack', 'Frontend', 'Backend'];
         </div>
     </div>
 </section>
+
+<style>
+    .filter-btn.active {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .project-card {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .project-card.hidden {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+</style>
+
+<script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    function filterProjects(filterType: string) {
+        projectCards.forEach(card => {
+            const cardType = card.getAttribute('data-type');
+            if (filterType === 'todos' || filterType === cardType) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            filterProjects(button.getAttribute('data-type') || 'todos');
+        });
+    });
+
+    // Set initial state
+    const defaultButton = document.querySelector('.filter-btn[data-type="todos"]');
+    if (defaultButton) {
+        defaultButton.classList.add('active');
+        filterProjects('todos');
+    }
+</script>
