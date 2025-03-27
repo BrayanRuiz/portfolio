@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import BrayanImg from '../assets/Brayan.jpg';
 ---
-<header class="fixed w-full z-50 top-0 px-8 py-4 flex items-center justify-between bg-black/5 backdrop-blur-md border-b border-white/5">
+<header class="fixed w-full z-50 top-0 px-4 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 bg-black/5 backdrop-blur-md border-b border-white/5">
 	<h1 class="text-2xl font-bold flex items-center gap-3">
 		<div class="relative">
 			<Image
@@ -21,8 +21,8 @@ import BrayanImg from '../assets/Brayan.jpg';
 		</div>
 	</h1>
 
-	<nav>
-		<ul class="flex gap-6 text-sm font-medium">
+	<nav class="w-full sm:w-auto">
+		<ul class="flex justify-center sm:justify-start gap-4 sm:gap-6 text-sm font-medium">
 			<li><a href="#inicio" class="hover:text-[#94D8F6] transition-colors menu">Inicio</a></li>
 			<li><a href="#proyectos" class="hover:text-[#94D8F6] transition-colors menu">Proyectos</a></li>
 			<li><a href="#sobre-mi" class="hover:text-[#94D8F6] transition-colors menu">Sobre mí</a></li>
