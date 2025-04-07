@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import * as images from '../assets/projects/*.jpg';
+import OPCimg from '../assets/projects/opc.jpg';
 interface Project {
     type: 'FRONTEND' | 'BACKEND' | 'FULLSTACK';
     title: string;
@@ -18,7 +18,10 @@ const projects: Project[] = [
         type: 'FULLSTACK',
         title: 'CONSULTORES PROFESIONALES OPC',
         description: 'Reconstrucción y rediseño del sitio web.',
-        image: images.default,
+        image: <Image 
+                    src={OPCimg}
+                    alt="Consultores Profesionales OPC"
+                />,
         tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'PHP', 'Bootstrap'],
         links: {
             code: 'https://github.com/BrayanRuiz/ConsultoresOPC',
