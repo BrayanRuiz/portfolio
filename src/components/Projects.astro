@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import * as images from '../assets/projects/*.jpg';
 interface Project {
     type: 'FRONTEND' | 'BACKEND' | 'FULLSTACK';
     title: string;
     description: string;
-    image: string;
+    image: ImageMetadata;
     tags: string[];
     links: {
         code: string;
@@ -16,7 +18,7 @@ const projects: Project[] = [
         type: 'FULLSTACK',
         title: 'CONSULTORES PROFESIONALES OPC',
         description: 'Reconstrucción y rediseño del sitio web.',
-        image: '/src/assets/projects/opc.jpg',
+        image: images.default,
         tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'PHP', 'Bootstrap'],
         links: {
             code: 'https://github.com/BrayanRuiz/ConsultoresOPC',
@@ -46,7 +48,7 @@ const filters = ['Todos', 'Fullstack', 'Frontend', 'Backend'];
             {
                 projects.map(({ type, title, description, tags, links, image }) => (
                     <article class={`project-card bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden ${type === 'FRONTEND' ? 'frontend' : type === 'BACKEND' ? 'backend' : 'fullstack'}`} data-type={type.toLowerCase().replace(' ', '')}>
-                        <img src={image} alt={title} class="w-full h-48 object-cover" />
+                        <Image src={image} alt={title} class="w-full h-48 object-cover" />
                         <div class="p-6">
                             <header class="mb-4">
                                 <span class="text-[#94D8F6] text-sm tracking-wider uppercase">{type}</span>
