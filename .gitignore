@@ -1,5 +1,4 @@
 /node_modules
-/.astro
 *.yaml
-*.mjs
 *.json
+tailwind.config.mjs
